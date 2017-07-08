@@ -91,6 +91,15 @@ def createComputationalResource(name):
         queue = Queue(cluster = cluster, name = 'qdasi200p48h', maxProcessors = 200, maxtime = 48)
         myCompResource = ComputationalResource(queue = queue, numThreadsToUse = 20, programToExecuteWith = 'python',
                                                exeStatement = '~/code/src/python/wnopt/src/runScripts/execute.py')
+    elif name == 'shadow-unsponsored':
+        serverName = 'shadow-login.hpc.msstate.edu'
+        if getpass.getuser() == 'hm568':
+            serverName = 'hmedal@shadow-login.hpc.msstate.edu'
+        cluster = Cluster(institution= 'msu', name = 'shadow', processorsPerNode= 20, serverName = serverName)
+        queue = Queue(cluster = cluster, name = 'q200p48h', maxProcessors = 200, maxtime = 0.6)
+        myCompResource = ComputationalResource(queue = queue, numThreadsToUse = 20, programToExecuteWith = 'python',
+                            exeStatement = '~/code/src/python/wnopt/src/runScripts/execute.py',
+                            orgFund = 'unsponsored')
     elif name == 'shadow-debug':
         serverName = 'shadow-login.hpc.msstate.edu'
         if getpass.getuser() == 'hm568':

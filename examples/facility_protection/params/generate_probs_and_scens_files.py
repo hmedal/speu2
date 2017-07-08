@@ -36,12 +36,19 @@ def generate_probs(alloc_levels, num_external_states, num_states):
     with open('params/fac_pro_probs_and_costs_' + get_params_string_probs(alloc_levels, num_states) + '.json', 'w') as outfile:
         json.dump(probs, outfile, indent=4)
 
-def generate_scens(params_file, world_states_file = None):
-    params_dict = json.loads(open(params_file).read())
-    num_facs = params_dict['num_facs']
-    num_states = params_dict['num_cap_levels']
+def merge_two_dicts(x, y):
+    """Given two dicts, merge them into a new dict as a shallow copy."""
+    z = x.copy()
+    z.update(y)
+    return z
+
+def generate_scens(static_params_file, changing_params_dict, world_states_file = None):
+    params_dict = json.loads(open(static_params_file).read())
+    num_facs = changing_params_dict['num_facs']
+    num_states = changing_params_dict['num_states']
     scens = {}
-    second_stage_prob = examples.facility_protection.src.facpro.SecondStageProblem(params_file)
+    second_stage_prob = examples.facility_protection.src.facpro.SecondStageProblem(
+        merge_two_dicts(params_dict, changing_params_dict))
     if world_states_file is None:
         world_states = {}
         world_states[0] = {}
@@ -65,20 +72,18 @@ def generate_scens(params_file, world_states_file = None):
 
 if __name__ == "__main__":
     print "cwd", os.getcwd()
-    num_allocation_levels = 3
-    num_facs = 4
-    num_hazard_states = 2
-    num_states = 2
-    exposure_type = 'allFullyExposedAlways'
-    if exposure_type != '':
+    changing_params_dict = {"num_allocation_levels" : 3, "num_facs" : 8, "num_hazard_states" : 2, "num_states" : 2,
+                            "exposure_type" : 'allFullyExposedAlways', "num_hazard_states" : 2,
+                            "datasetName" : "Daskin49"}
+    exposure_type = changing_params_dict['exposure_type']
+    if changing_params_dict['exposure_type'] != '':
         exposure_type_print = "_" + exposure_type
     else:
         exposure_type_print = exposure_type
-    params_file = 'params/params_Daskin_' + get_params_string_params(
-        num_facs,
-        num_allocation_levels,
-        num_states) + '.json'
-    generate_probs(num_allocation_levels, num_hazard_states, num_states)
-    world_states_file = 'daskin_data/Hazards/hazardsDef_custom_facs' + str(num_facs) + "_levels" \
-                        + str(num_hazard_states)+ exposure_type_print + '.json'
-    generate_scens(params_file)
+    static_params_file = 'params/static_params.json'
+    generate_probs(changing_params_dict['num_allocation_levels'], changing_params_dict['num_hazard_states'],
+                   changing_params_dict['num_states'])
+    world_states_file = 'dat/daskin_data/Hazards/hazardsDef_custom_facs' + str(changing_params_dict['num_facs']) \
+                        + "_levels" \
+                        + str(changing_params_dict['num_hazard_states'])+ exposure_type_print + '.json'
+    generate_scens(static_params_file, changing_params_dict, world_states_file)

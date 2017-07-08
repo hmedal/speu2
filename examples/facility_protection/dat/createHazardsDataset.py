@@ -35,7 +35,7 @@ def getHazardLevelForLocationInScenario(coorOfHazardCenter, coorOfLoc, severityR
 
 def setPaths():
     global dataPath
-    dataPath = '../daskin_data'
+    dataPath = 'daskin_data'
 
 def readFromCSVFile(filepath, numLevels):
     centers = []
@@ -128,13 +128,14 @@ def createHazardsFile_readFromFile(numFacs, hazardsFilepath, locCoor, numLevels,
 
 if __name__ == "__main__":
     print "cwd", os.getcwd()
+    num_hazard_levels = 2
     setPaths()
-    hazardsFilePath = '../daskin_data/Hazards/list_of_hazard_scenarios_2_levels.csv'
+    hazardsFilePath = 'daskin_data/Hazards/list_of_hazard_scenarios_2_levels.csv'
     for p in [2,3,4,5,6,7,8,9,10]:
         dataset = facpro.Dataset(dataPath + '/Daskin49_FacPro_p' + str(p) + '.xml')
         locCoor = dataset.coor
         numFacs = len(locCoor)
-        createHazardsFile_readFromFile(numFacs, hazardsFilePath, locCoor, 2, True)
-        createHazardsFile_allFullyExposedAlways(numFacs, 3)
-        createHazardsFile_HalfExposedAlways(numFacs, 3)
+        createHazardsFile_readFromFile(numFacs, hazardsFilePath, locCoor, num_hazard_levels, True)
+        createHazardsFile_allFullyExposedAlways(numFacs, num_hazard_levels)
+        createHazardsFile_HalfExposedAlways(numFacs, num_hazard_levels)
     print "completed"

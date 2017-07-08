@@ -99,10 +99,8 @@ def createDefaultComputationalResource(mode = 'debug'):
     global computationalResource_global
     if mode == 'debug':
         computationalResource_global = computationalresource.createComputationalResource('shadow-debug')
-    elif mode == 'test':
-        computationalResource_global = computationalresource.createComputationalResource('shadow-360746-test')
     else:
-        computationalResource_global = computationalresource.createComputationalResource('shadow-360746')
+        computationalResource_global = computationalresource.createComputationalResource('shadow-unsponsored')
 
 def createBaseParamsDict():
     global baseParamsDict_global

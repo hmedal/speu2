@@ -60,9 +60,14 @@ class ProblemInstance(object):
     distance_rate = 100.0  # miles per hour perhaps (traveling by plane)
 
     def __init__(self, params_file):
-        params_dict = json.loads(open(params_file).read())
+        if isinstance(params_file, dict):
+            params_dict = params_file
+        else:
+            params_dict = json.loads(open(params_file).read())
         self.readInExperimentData(params_dict)
-        dataFilePath = params_dict['data_file_path']
+        dataset_name = params_dict['datasetName']
+        num_facs = params_dict['num_facs']
+        dataFilePath = 'dat/daskin_data/' + dataset_name +"_FacPro" + "_p" + str(num_facs) + ".xml"
         self.createInstance(Dataset(dataFilePath))
 
     def time_from_distance(self, distance):
@@ -75,11 +80,12 @@ class ProblemInstance(object):
             -self.utility_dissipation_constant * time / (maxTime + 0.0))
 
     def readInExperimentData(self, params_dict):
+        print "params dict", params_dict
         self.excess_capacity = params_dict['excess_capacity']
         self.penaltyMultiplier = params_dict['penalty_multiplier']
         self.numAllocLevels = params_dict['num_allocation_levels']
-        self.numCapLevels = params_dict['num_cap_levels']
-        self.budgetMultiplier = params_dict['budget_multiplier']
+        self.numCapLevels = params_dict['num_states']
+        #self.budgetMultiplier = params_dict['budget_multiplier']
 
     def createInstance(self, dataset):
         self.facIDs = dataset.facIDs
@@ -99,15 +105,18 @@ class ProblemInstance(object):
             self.pairsUtilityMatrix[i].append(
                 self.utility(self.penaltyMultiplier * maxDist, self.penaltyMultiplier * maxDist))
         # print "utilMatrix", self.pairsUtilityMatrix
-        print "budget (without round): ", self.budgetMultiplier * self.numFacs * (self.numAllocLevels - 1)
-        self.budget = round(self.budgetMultiplier * self.numFacs * (self.numAllocLevels - 1))
-        print "self.budget: ", self.budget
+        #print "budget (without round): ", self.budgetMultiplier * self.numFacs * (self.numAllocLevels - 1)
+        #self.budget = round(self.budgetMultiplier * self.numFacs * (self.numAllocLevels - 1))
+        #print "self.budget: ", self.budget
 
 class SecondStageProblem(object):
 
     def __init__(self, params_file, debug = False):
-        params_dict = json.loads(open(params_file).read())
-        self.instance = ProblemInstance(params_file)
+        if isinstance(params_file, dict):
+            params_dict = params_file
+        else:
+            params_dict = json.loads(open(params_file).read())
+        self.instance = ProblemInstance(params_dict)
         self.num_cap_levels = self.instance.numCapLevels
         self.debug = debug
         self.createModelGurobi()
