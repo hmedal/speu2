@@ -1,0 +1,10 @@
+{
+  "penalty_multiplier" : 2.0,
+  "excess_capacity" : 0.1,
+  "budget_multiplier" : 0.25,
+  "dataset" : "Daskin49",
+  "num_facs" : 3,
+  "num_allocation_levels" : 3,
+  "num_cap_levels" : 3,
+  "data_file_path" : "./daskin_data/Daskin49_FacPro_p3.xml"
+}

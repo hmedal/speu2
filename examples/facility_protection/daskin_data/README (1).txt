@@ -1,0 +1,1 @@
+Data from Daskin (1995); demands are divided by 10^4

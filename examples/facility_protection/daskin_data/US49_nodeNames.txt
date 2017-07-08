@@ -1,0 +1,49 @@
+Sacramento	California
+Albany	NewYork
+Austin	Texas
+Tallahassee	Florida
+Harrisburg	Pennsylvania
+Springfield	Missouri
+Columbus	Ohio
+Lansing	Michigan
+Trenton	NewJersey
+Raleigh	NorthCarolina
+Atlanta	Georgia
+Richmond	Virginia
+Boston	Massachussets
+Indianapolis	Indiana
+Jefferson City	Missouri
+Madison	Wisconsin
+Nashville-Davidson	Tennessee
+Olympia	Washington
+Annapolis	Maryland
+St. Paul	Minnesota
+Baton Rouge	Louisiana
+Montgomery	Alabama
+Frankfort	Kentucky
+Phoenix	Arizona
+Columbia	SouthCarolina
+Denver	Colorado
+Hartford	Connecticut
+Oklahoma City	Oklahoma
+Salem	Oregon
+Des Moines	Iowa
+Jackson	Mississippi
+Topeka	Kansas
+Little Rock	Arkansas
+Charleston	WestVirginia
+Salt Lake City	Utah
+Lincoln	Nebraska
+Santa Fe	NewMexico
+Augusta	Georgia
+Carson City	Nevada
+Concord	NewHampshire
+Boise City	Idaho
+Providence	RhodeIsland
+Helena	Montana
+Pierre	SouthDakota
+Dover	Delaware
+Bismarck	NorthDakota
+Washington	DistrictOfColumbia
+Montpelier	Vermont
+Cheyenne	Wyoming

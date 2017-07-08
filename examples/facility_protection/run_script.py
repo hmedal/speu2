@@ -1,7 +1,7 @@
-import os
 import argparse
+
+from examples.facility_protection.params import generate_probs_and_scens_files
 from modeling import speu
-import generate_params_files
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Read a filename.')
@@ -12,10 +12,10 @@ if __name__ == "__main__":
     parser.add_argument('-w', '--world_states_file',
                         help='file describing the world states and how affect the components', default = 'none')
     args = parser.parse_args()
-    scens_file = 'fac_pro_scens_' + generate_params_files.get_params_string_scens(args.num_facs,
-                                                                                  args.num_states) + '.json'
-    probs_file = 'fac_pro_probs_' + generate_params_files.get_params_string_probs(args.num_alloc_levels,
-                                                                                  args.num_states) + '.json'
+    scens_file = './params/fac_pro_scens_' + generate_probs_and_scens_files.get_params_string_scens(args.num_facs,
+                                                                                                    args.num_states) + '.json'
+    probs_file = './params/fac_pro_probs_and_costs_' + generate_probs_and_scens_files.get_params_string_probs(args.num_alloc_levels,
+                                                                                                    args.num_states) + '.json'
     model = speu.create_model_object(True, scens_file, probs_file, args.debug)
     model.solve()
 

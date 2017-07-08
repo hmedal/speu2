@@ -1,0 +1,88 @@
+New York	NYC
+Los Angeles	LA
+Chicago	CHI
+Houston	HOU
+Philadelphia	PHI
+San Diego	SD
+Detroit	DET
+Dallas	DAL
+Phoenix 	PHO
+San Antonio 	SAN
+San Jose 	SJ
+Baltimore	BAL
+Indianapolis	IND
+San Francisco	SF
+Jacksonville	JAX
+Columbus	COL
+Milwaukee	MIL
+Memphis	MEM
+Washington	DC
+Boston	BOS
+Seattle	SEA
+El Paso	EP
+Cleveland	CLE
+New Orleans	NO
+Nashville	NAS
+Denver	DEN
+Austin	AUS
+Fort Worth	FW
+Oklahoma City	OKC
+Portland	POR
+Kansas City	KC
+Long Beach	LBC
+Tucson	TUC
+St. Louis	STL
+Charlotte	CHA
+Atlanta	ATL
+Virginia Beach	VIB
+Albuquerque	ALB
+Oakland	OAK
+Pittsburgh	PIT
+Sacramento	SAC
+Minneapolis	MPL
+Tulsa	TUL
+Cincinnati	CIN
+Miami	MIA
+Fresno	FRE
+Omaha	OMA
+Toledo	TOL
+Buffalo	BUF
+Wichita	WIC
+St. Paul	STP
+Baton Rouge	BAT
+Raleigh	RAL
+Richmond	RIC
+Jackson	JAC
+Des Moines	DES
+Lincoln	LIN
+Madison	MAD
+Montgomery	MON
+Little Rock	LR
+Providence	PRO
+Salt Lake City	SLC
+Hartford	HAR
+Lansing	LAN
+Boise City	BOI
+Tallahassee	TAL
+Topeka	TOP
+Salem	SAL
+Springfield	SPR
+Albany	ALB
+Columbia	COL
+Trenton	TRE
+Charleston	CHA
+Santa Fe	SF
+Harrisburg	HAR
+Cheyenne	CHE
+Bismarck	BIS
+Carson	CAR
+Concord	CON
+Jefferson City	JC
+Olympia	OLY
+Annapolis	ANN
+Dover	DOV
+Frankfort	FRA
+Helena	HEL
+Augusta	AUG
+Pierre	PIE
+Montpelier	MON

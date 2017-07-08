@@ -1,0 +1,49 @@
+Sacramento	SAC
+Albany	ALB
+Austin	AUS
+Tallahassee	TAL
+Harrisburg	HAR
+Springfield	SPR
+Columbus	COL
+Lansing	LAN
+Trenton	TRE
+Raleigh	RAL
+Atlanta	ATL
+Richmond	RIC
+Boston	BOS
+Indianapolis	IND
+Jefferson City	JEF
+Madison	MAD
+Nashville	NAS
+Olympia	OLY
+Annapolis	ANN
+St. Paul	STP
+Baton Rouge	BR
+Montgomery	MON
+Frankfort	FRA
+Phoenix	PHO
+Columbia	COL
+Denver	DEN
+Hartford	HAR
+Oklahoma City	OKC
+Salem	SAL
+Des Moines	DM
+Jackson	JAC
+Topeka	TOP
+Little Rock	LR
+Charleston	CHA
+Salt Lake City	SLC
+Lincoln	LIN
+Santa Fe	SF
+Augusta	AUG
+Carson	CAR
+Concord	CON
+Boise City	BC
+Providence	PRO
+Helena	HEL
+Pierre	PIE
+Dover	DOV
+Bismarck	BIS
+Washington	WAS
+Montpelier	MON
+Cheyenne	CHE

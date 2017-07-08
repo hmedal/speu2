@@ -37,7 +37,7 @@ class SPEU_Model():
         self.set_objective()
         self.create_constraints()
         if self.debug:
-            self.model.write("speu_model.lp")
+            self.model.write("./output/speu_model.lp")
 
     def create_variables(self):
         self.alloc_var = {}
@@ -120,7 +120,7 @@ class SPEU_Model():
 
     def solve(self):
         self.model.optimize()
-        self.model.write("speu_model.sol")
+        self.model.write("./output/speu_model.sol")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Read a filename.')
