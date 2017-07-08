@@ -1,0 +1,20 @@
+{"types" :
+  {"date" : "timestamp",
+   "inst" : "tinytext",
+   "clusterName" : "tinytext",
+   "datasetName" : "tinytext",
+    "penalty_multiplier" : "real",
+    "excess_capacity" : "real",
+    "budget_multiplier" : "real",
+    "num_facs" : "tinyint(100)",
+    "num_allocation_levels" : "tinyint(100)",
+    "num_cap_levels" : "tinyint(100)"
+  },
+  "metaColumns" : ["date", "inst", "clusterName"],
+  "groupsForColumnsInAllTables" : ["dataset", "static", "changing"],
+  "columnsInAllTables" : {"dataset" : ["datasetName"],
+                          "static" : ["penalty_multiplier", "excess_capacity"],
+                          "changing" : ["budget_multiplier", "num_facs", "num_allocation_levels", "num_cap_levels"]},
+  "baseTableColumns" : ["lb", "ub", "objValue", "runTime"],
+  "relErrorTableColumns" : ["heuristicObj", "actualObj", "bestObj"]
+}

@@ -1,0 +1,9 @@
+{
+  "penalty_multiplier":"pm",
+  "excess_capacity" : "ec",
+  "budget_multiplier" : "bm",
+  "dataset" : "da",
+  "num_facs" : "j",
+  "num_allocation_levels" : "k",
+  "num_cap_levels" : "l"
+}

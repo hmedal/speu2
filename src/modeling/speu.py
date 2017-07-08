@@ -4,12 +4,12 @@ import gurobipy as gp
 
 FUZZ = 0.0001
 
-def create_model_object(maximize, scenarios, probabilities, debug):
-    return SPEU_Model(maximize, scenarios, probabilities, debug)
+def create_model_object(maximize, params_file, scenarios, probabilities, debug):
+    return SPEU_Model(maximize, params_file, scenarios, probabilities, debug)
 
 class SPEU_Model():
 
-    def __init__(self, maximize, scenarios_file, probabilities_file, debug):
+    def __init__(self, maximize, params_file, scenarios_file, probabilities_file, debug):
         '''
         Constructor
         '''
@@ -17,8 +17,11 @@ class SPEU_Model():
             self.obj_sense = gp.GRB.MAXIMIZE
         else:
             self.obj_sense = gp.GRB.MINIMIZE
+        self.params_dict = json.loads(open(params_file).read())
         self.read_scens_file(scenarios_file)
         self.read_probabilities_file(probabilities_file)
+        budgetMultiplier = self.params_dict['budget_multiplier']
+        self.params_dict['budget'] = round(budgetMultiplier * self.num_components * (self.num_alloc_levels - 1))
         self.debug = debug
         self.create_model()
 
@@ -27,9 +30,9 @@ class SPEU_Model():
         self.num_components = len(self.scenarios['0']['component_states'])
         self.num_scenarios = len(self.scenarios)
 
-    def read_probabilities_file(self, probabilities_file):
-        self.probabilities = json.loads(open(probabilities_file).read())
-        self.num_alloc_levels = len(self.probabilities)
+    def read_probabilities_file(self, probabilities_and_costs_file):
+        self.probabilities_and_costs = json.loads(open(probabilities_and_costs_file).read())
+        self.num_alloc_levels = len(self.probabilities_and_costs)
 
     def create_model(self):
         self.model = gp.Model()
@@ -61,7 +64,7 @@ class SPEU_Model():
             for alloc_level in range(self.num_alloc_levels):
                 component_state = self.scenarios[str(scen)]['component_states'][0] #first component state
                 component_exposure = self.scenarios[str(scen)]['exposures'][0] #first component exposure
-                prob_of_state = self.probabilities[str(alloc_level)][str(component_exposure)][str(component_state)]
+                prob_of_state = self.probabilities_and_costs[str(alloc_level)][str(component_exposure)][str(component_state)]
                 if prob_of_state > FUZZ:
                     second_stage_obj_val = self.scenarios[str(scen)]['objective_value']
                     self.model.addConstr(self.cum_prob_var[0][alloc_level][scen] ==
@@ -76,7 +79,7 @@ class SPEU_Model():
                 for alloc_level1 in range(self.num_alloc_levels):
                     component_state = self.scenarios[str(scen)]['component_states'][component-1]
                     component_exposure = self.scenarios[str(scen)]['exposures'][component-1]
-                    prob_of_state = self.probabilities[str(alloc_level1)][str(component_exposure)][str(component_state)]
+                    prob_of_state = self.probabilities_and_costs[str(alloc_level1)][str(component_exposure)][str(component_state)]
                     print "prob_of_state left sum", alloc_level1, prob_of_state
                     if prob_of_state > FUZZ:
                         left_sum += self.cum_prob_var[component-1][alloc_level1][scen]
@@ -84,11 +87,12 @@ class SPEU_Model():
                 for alloc_level2 in range(self.num_alloc_levels):
                     component_state = self.scenarios[str(scen)]['component_states'][component]
                     component_exposure = self.scenarios[str(scen)]['exposures'][component]
-                    prob_of_state = self.probabilities[str(alloc_level2)][str(component_exposure)][str(component_state)]
+                    prob_of_state = self.probabilities_and_costs[str(alloc_level2)][str(component_exposure)][str(component_state)]
                     print "prob_of_state right sum", alloc_level2, prob_of_state
                     if prob_of_state > FUZZ:
                         right_sum += (1/prob_of_state) * self.cum_prob_var[component][alloc_level2][scen]
-                self.model.addConstr(left_sum == right_sum, "prob_chain_j_" +str(component) + "_s_" + str(scen)) #TODO figure out how to fix it when leftsum = rightsum = 0 (happens when world state is zero)
+                if not (left_sum == 0 and right_sum == 0):
+                    self.model.addConstr(left_sum == right_sum, "prob_chain_j_" +str(component) + "_s_" + str(scen))
         # variable upper bound (VUB) constraints
         for scen in range(self.num_scenarios):
             second_stage_obj_val = self.scenarios[str(scen)]['objective_value']
@@ -103,12 +107,12 @@ class SPEU_Model():
             for alloc_level in range(self.num_alloc_levels):
                 vars_sum += self.alloc_var[component][alloc_level]
             self.model.addConstr(vars_sum == 1, "multiple_choic_j_" + str(component))
-        #TODO add budget parameter; also add costs file; modify constraint below
         cost_sum = 0
         for component in range(self.num_components):
             for alloc_level in range(self.num_alloc_levels):
-                cost_sum += alloc_level * self.alloc_var[component][alloc_level]
-        self.model.addConstr(cost_sum <= 2, "budget")
+                cost_sum += self.probabilities_and_costs[str(alloc_level)]['cost'] * \
+                            self.alloc_var[component][alloc_level]
+        self.model.addConstr(cost_sum <= self.params_dict['budget'], "budget")
 
     def set_objective(self):
         objective_sum = 0
@@ -128,6 +132,7 @@ if __name__ == "__main__":
     parser.add_argument('-d', '--debug', help='run in debug mode', action='store_false')
     parser.add_argument('-s', '--scenarios', help='scenarios definition file', default="scens.json")
     parser.add_argument('-m', '--maximize', help='use maximization objective', action='store_false')
+    parser.add_argument('-a', '--params', help='params file', default="params.json")
     args = parser.parse_args()
-    model = create_model_object(args.maximize, args.scenarios, args.prob, args.debug)
+    model = create_model_object(args.maximize, args.params, args.scenarios, args.prob, args.debug)
     model.solve()
