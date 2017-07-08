@@ -32,17 +32,24 @@ def generate_probs(alloc_levels, num_external_states, num_states):
 def generate_scens(num_facs, num_states, world_states_file = None):
     scens = {}
 
-    scens['world-state'] = {}
     if world_states_file is None:
-        scens['world-state'][0] = [0]*num_facs
+        world_states = {}
+        world_states[0] = {}
+        world_states[0]['probability'] = 1.0
+        world_states[0]['exposures'] = [1]*num_facs
 
-    scens['element-states'] = {}
+    scens = {}
     count = 0
-    for states_vector in itertools.product(range(num_states), repeat=num_facs):
-        scens['element-states'][count] = states_vector
-        count += 1
+    for world_state in world_states:
+        for states_vector in itertools.product(range(num_states), repeat=num_facs):
+            scens[count] = {}
+            scens[count]['component_states'] = states_vector
+            scens[count]['exposures'] = world_states[world_state]['exposures']
+            scens[count]['prob_of_world_state'] = world_states[world_state]['probability']
+            scens[count]['objective_value'] = 10.0 #TODO implement this
+            count += 1
 
-    with open('fac_pro_scens_' + get_params_string_probs(num_facs, num_states) + '.json', 'w') as outfile:
+    with open('fac_pro_scens_' + get_params_string_scens(num_facs, num_states) + '.json', 'w') as outfile:
         json.dump(scens, outfile, indent=2)
 
 if __name__ == "__main__":
