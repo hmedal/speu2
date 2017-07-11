@@ -67,7 +67,7 @@ class ProblemInstance(object):
         self.readInExperimentData(params_dict)
         dataset_name = params_dict['datasetName']
         num_facs = params_dict['num_facs']
-        dataFilePath = 'dat/daskin_data/' + dataset_name +"_FacPro" + "_p" + str(num_facs) + ".xml"
+        dataFilePath = '../dat/daskin_data/' + dataset_name +"_FacPro" + "_p" + str(num_facs) + ".xml"
         self.createInstance(Dataset(dataFilePath))
 
     def time_from_distance(self, distance):

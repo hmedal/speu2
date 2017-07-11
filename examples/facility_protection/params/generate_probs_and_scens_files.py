@@ -33,7 +33,7 @@ def generate_probs(alloc_levels, num_external_states, num_states):
                 p = getProbabilityFromAllocationAndHazardLevel(alloc_level, alloc_levels, external_state,
                                                                num_external_states)
                 probs[alloc_level][external_state][state] = stats.binom.pmf(state, num_states - 1, p)
-    with open('params/fac_pro_probs_and_costs_' + get_params_string_probs(alloc_levels, num_states) + '.json', 'w') as outfile:
+    with open('fac_pro_probs_and_costs_' + get_params_string_probs(alloc_levels, num_states) + '.json', 'w') as outfile:
         json.dump(probs, outfile, indent=4)
 
 def merge_two_dicts(x, y):
@@ -67,12 +67,12 @@ def generate_scens(static_params_file, changing_params_dict, world_states_file =
             scens[count]['objective_value'] = second_stage_prob.computeSecondStageUtility(states_vector)
             count += 1
 
-    with open('params/fac_pro_scens_' + get_params_string_scens(num_facs, num_states) + '.json', 'w') as outfile:
+    with open('fac_pro_scens_' + get_params_string_scens(num_facs, num_states) + '.json', 'w') as outfile:
         json.dump(scens, outfile, indent=2)
 
 if __name__ == "__main__":
     print "cwd", os.getcwd()
-    changing_params_dict = {"num_allocation_levels" : 3, "num_facs" : 8, "num_hazard_states" : 2, "num_states" : 2,
+    changing_params_dict = {"num_allocation_levels" : 3, "num_facs" : 2, "num_hazard_states" : 2, "num_states" : 2,
                             "exposure_type" : 'allFullyExposedAlways', "num_hazard_states" : 2,
                             "datasetName" : "Daskin49"}
     exposure_type = changing_params_dict['exposure_type']
@@ -80,10 +80,10 @@ if __name__ == "__main__":
         exposure_type_print = "_" + exposure_type
     else:
         exposure_type_print = exposure_type
-    static_params_file = 'params/static_params.json'
+    static_params_file = 'static_params.json'
     generate_probs(changing_params_dict['num_allocation_levels'], changing_params_dict['num_hazard_states'],
                    changing_params_dict['num_states'])
-    world_states_file = 'dat/daskin_data/Hazards/hazardsDef_custom_facs' + str(changing_params_dict['num_facs']) \
+    world_states_file = '../dat/daskin_data/Hazards/hazardsDef_custom_facs' + str(changing_params_dict['num_facs']) \
                         + "_levels" \
                         + str(changing_params_dict['num_hazard_states'])+ exposure_type_print + '.json'
     generate_scens(static_params_file, changing_params_dict, world_states_file)

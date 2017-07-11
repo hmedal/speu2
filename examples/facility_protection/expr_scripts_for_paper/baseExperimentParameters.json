@@ -1,5 +1,5 @@
 {
   "datasetName" : "Daskin49",
   "penalty_multiplier" : 2.0, "excess_capacity" : 0.1,
-  "budget_multiplier" : 0.25, "num_facs" : 8, "num_allocation_levels" : 3, "num_states" : 2
+  "budget_multiplier" : 0.1, "num_facs" : 3, "num_allocation_levels" : 3, "num_states" : 2
 }

@@ -6,5 +6,5 @@
   "num_facs" : 3,
   "num_allocation_levels" : 3,
   "num_cap_levels" : 3,
-  "data_file_path" : "./daskin_data/Daskin49_FacPro_p3.xml"
+  "data_file_path" : "../dat/daskin_data/Daskin49_FacPro_p3.xml"
 }

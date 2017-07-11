@@ -4,7 +4,7 @@ from examples.facility_protection.params import generate_probs_and_scens_files
 from modeling import speu
 import json
 
-if __name__ == "__main__": #TODO figure out why the model is not using all of the budget
+if __name__ == "__main__": #TODO figure out why the model is infeasible
     os.chdir('../examples/facility_protection')
     print "cwd", os.getcwd()
     debug = True
