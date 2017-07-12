@@ -68,7 +68,7 @@ class ProblemInstance(object):
         self.readInExperimentData(params_dict)
         dataset_name = params_dict['datasetName']
         num_facs = params_dict['num_facs']
-        dataFilePath = '../dat/daskin_data/' + dataset_name +"_FacPro" + "_p" + str(num_facs) + ".xml"
+        dataFilePath = 'dat/daskin_data/' + dataset_name +"_FacPro" + "_p" + str(num_facs) + ".xml"
         self.createInstance(Dataset(dataFilePath))
 
     def time_from_distance(self, distance):
@@ -225,7 +225,7 @@ def generate_scens_saa_second_stage(params_dict, allocation_dict, saa_params_dic
     else:
         world_states = json.loads(open(world_states_file).read())
     scens = get_scen_sample_dict(second_stage_samples, params_dict, world_states, allocation_dict)
-    with open('../params/scens_saa_secondStage.json', 'w') as outfile:
+    with open('params/scens_saa_secondStage.json', 'w') as outfile:
         json.dump(scens, outfile, indent=2)
 
 if __name__ == "__main__":

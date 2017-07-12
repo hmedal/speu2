@@ -2,7 +2,7 @@
   "datasetName" : "Daskin49",
   "penalty_multiplier" : 2.0, "excess_capacity" : 0.1,
   "budget_multiplier" : 0.25, "num_facs" : 5, "num_allocation_levels" : 3, "num_states" : 2,
-  "solution_method" : "deterministic-equivalent",
-  "saa_first_stage_iterations": 10, "saa_first_stage_samples": 500, "saa_second_stage_samples": 200,
-  "saa_sampler_command" : "python facpro.py"
+  "solution_method" : "saa",
+  "saa_first_stage_iterations": 10, "saa_first_stage_samples": 100, "saa_second_stage_samples": 5000,
+  "saa_sampler_command" : "python src/facpro.py"
 }

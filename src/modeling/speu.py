@@ -2,11 +2,18 @@ import argparse
 import json
 import gurobipy as gp
 import csv
+import operator
+import os
+import numpy as np
 
 FUZZ = 0.0000001
 
-def create_model_object(maximize, params_file, scenarios, probabilities, debug):
-    return SPEU_Stochastic_Program(maximize, params_file, scenarios, probabilities, debug)
+def create_model_object(maximize, params_file, scenarios_file, probabilities_file, debug):
+    params_dict = json.loads(open(params_file).read())
+    if params_dict["solution_method"] == "deterministic-equivalent":
+        return SPEU_Stochastic_Program(maximize, params_file, scenarios_file, probabilities_file, debug)
+    elif params_dict["solution_method"] == "saa":
+        return SPEU_SAA_Algorithm(maximize, params_file, scenarios_file, probabilities_file, debug)
 
 class SPEU_Stochastic_Program():
 
@@ -28,11 +35,14 @@ class SPEU_Stochastic_Program():
         self.create_model()
 
     def read_scens_file(self, scenarios_file):
+        print "scenarios_file", scenarios_file
         if isinstance(scenarios_file, dict):
             self.scenarios = scenarios_file
         else:
             self.scenarios = json.loads(open(scenarios_file).read())
-        self.num_components = len(self.scenarios['0']['component_states'])
+        print "scenarios", self.scenarios
+        first_key = self.scenarios.keys()[0]
+        self.num_components = len(self.scenarios[first_key]['component_states'])
         self.num_scenarios = len(self.scenarios)
 
     def read_probabilities_file(self, probabilities_and_costs_file):
@@ -60,7 +70,7 @@ class SPEU_Stochastic_Program():
             self.cum_prob_var[component] = {}
             for alloc_level in range(self.num_alloc_levels):
                 self.cum_prob_var[component][alloc_level] = {}
-                for scen in range(self.num_scenarios):
+                for scen in self.scenarios:
                     self.cum_prob_var[component][alloc_level][scen] = self.model.addVar(0,gp.GRB.INFINITY,
                         name="cum_prob_j_" + str(component) + "_k_" + str(alloc_level) + "_s_" + str(scen))
 
@@ -73,7 +83,7 @@ class SPEU_Stochastic_Program():
 
     def create_prob_chain_first_component(self):
         # constraints for first component
-        for scen in range(self.num_scenarios):
+        for scen in self.scenarios:
             for alloc_level in range(self.num_alloc_levels):
                 component_state = self.scenarios[str(scen)]['component_states'][0]  # first component state
                 component_exposure = self.scenarios[str(scen)]['exposures'][0]  # first component exposure
@@ -89,7 +99,7 @@ class SPEU_Stochastic_Program():
 
     def create_prob_chain_constraints(self):
         # constraints for other components
-        for scen in range(self.num_scenarios):
+        for scen in self.scenarios:
             # print "scen", scen
             for component in range(1, self.num_components):
                 # print "component", component
@@ -119,7 +129,7 @@ class SPEU_Stochastic_Program():
 
     def create_vub_constraints(self):
         # variable upper bound (VUB) constraints
-        for scen in range(self.num_scenarios):
+        for scen in self.scenarios:
             second_stage_obj_val = self.scenarios[str(scen)]['objective_value']
             for component in range(self.num_components):
                 for alloc_level in range(self.num_alloc_levels):
@@ -145,25 +155,25 @@ class SPEU_Stochastic_Program():
 
     def set_objective(self):
         objective_sum = 0
-        for scen in range(self.num_scenarios):
-            objective_sum += self.scenarios[str(scen)]['prob_of_world_state']*\
+        for scen in self.scenarios:
+            objective_sum += self.scenarios[scen]['prob_of_world_state']*\
                              sum([self.cum_prob_var[self.num_components - 1][alloc_level][scen]
                                   for alloc_level in range(self.num_alloc_levels)])
         self.model.setObjective(objective_sum, gp.GRB.MAXIMIZE)
 
     def solve(self):
-        if self.solution_method == 'deterministic-equivalent':
-            self.model.optimize()
-            soln_file = "./output/speu_model.sol"
-            self.model.write(soln_file)
-            print "alloc var for components", self.get_alloc_level_for_components_from_sol_file(soln_file)
-            print "probabilities for scenarios", self.compute_scenario_probs_for_alloc_vars_soln(soln_file)
-            probs_times_obj_vals = self.compute_scenario_probs_times_obj_vals_for_alloc_vars_soln(soln_file)
-            print "probabilities times obj vals for scenarios", probs_times_obj_vals
-            print "sum of probabilities times obj vals for scenarios", sum(probs_times_obj_vals.values())
-            alloc_levels_and_state_probs = self.get_alloc_vals_and_state_probabilities(soln_file)
-            with open('alloc_levels_and_state_probs.json', 'w') as outfile:
-                json.dump(alloc_levels_and_state_probs, outfile, indent=2)
+        self.model.optimize()
+        self.soln_file = "./output/speu_model.sol"
+        self.model.write(self.soln_file)
+        print "alloc var for components", self.get_alloc_level_for_components_from_sol_file(self.soln_file)
+        print "probabilities for scenarios", self.compute_scenario_probs_for_alloc_vars_soln(self.soln_file)
+        probs_times_obj_vals = self.compute_scenario_probs_times_obj_vals_for_alloc_vars_soln(self.soln_file)
+        print "probabilities times obj vals for scenarios", probs_times_obj_vals
+        print "sum of probabilities times obj vals for scenarios", sum(probs_times_obj_vals.values())
+        alloc_levels_and_state_probs = self.get_alloc_vals_and_state_probabilities(self.soln_file)
+        with open('alloc_levels_and_state_probs.json', 'w') as outfile:
+            json.dump(alloc_levels_and_state_probs, outfile, indent=2)
+        return self.model.objVal
 
     def read_alloc_soln_from_sol_file(self, soln_file):
         var_vals = {}
@@ -204,7 +214,7 @@ class SPEU_Stochastic_Program():
     def compute_scenario_probs_for_alloc_vars_soln(self, soln_file):
         alloc_level_for_component = self.get_alloc_level_for_components_from_sol_file(soln_file)
         scen_probs = {}
-        for scen in range(self.num_scenarios):
+        for scen in self.scenarios:
             scen_probs[scen] = 1
             for component in range(self.num_components):
                 component_state = self.scenarios[str(scen)]['component_states'][component]
@@ -219,29 +229,50 @@ class SPEU_Stochastic_Program():
     def compute_scenario_probs_times_obj_vals_for_alloc_vars_soln(self, soln_file):
         probs_times_obj_vals = {}
         scen_probs = self.compute_scenario_probs_for_alloc_vars_soln(soln_file)
-        for scen in range(self.num_scenarios):
+        for scen in self.scenarios:
             probs_times_obj_vals[scen] = scen_probs[scen] * self.scenarios[str(scen)]['objective_value']
         return probs_times_obj_vals
 
 class SPEU_SAA_Algorithm(SPEU_Stochastic_Program):
 
-    def __init__(self, maximize, params_file, saa_scenarios_file, probabilities_file, debug):
+    def __init__(self, maximize, params_file, scenarios_file, probabilities_file, debug):
+        if maximize:
+            self.obj_sense = gp.GRB.MAXIMIZE
+        else:
+            self.obj_sense = gp.GRB.MINIMIZE
+        self.params_file = params_file
         self.params_dict = json.loads(open(params_file).read())
-        self.first_stage_iterations = self.params_dict['first_stage_iterations']
-        self.scenarios = json.loads(open(saa_scenarios_file).read())
+        self.num_first_stage_solns = self.params_dict['saa_first_stage_iterations']
+        self.scenarios = json.loads(open(scenarios_file).read())
+        print "scenarios in init", self.scenarios
         self.sample_average_problems = []
         for iter in range(self.num_first_stage_solns):
-            scenarios_for_iteration = {k: self.scenarios[k] for k in range(iter*self.num_first_stage_solns,
+            scenarios_for_iteration = {str(k): self.scenarios[str(k)] for k in range(iter*self.num_first_stage_solns,
                                                              (iter+1) * self.num_first_stage_solns)}
+            print "scenarios_for_iteration", scenarios_for_iteration
             self.sample_average_problems.append(SPEU_Stochastic_Program(maximize, params_file, scenarios_for_iteration,
                                                                    probabilities_file, debug))
 
     def solve(self):
+        objective_values_and_solutions = {}
         for sample_average_problem in self.sample_average_problems:
-            sample_average_problem.solve()
-        #TODO make direction for story solns and SAA samples
-        #TODO for second stage (lower bound) figure out a way of sampling given the allocation vector and
-            # computing the objective value for a state vector (maybe pickle and object and write it to file; or use os.system() and have it write to file)
+            objVal = sample_average_problem.solve()
+            objective_values_and_solutions[objVal] = json.loads(open('alloc_levels_and_state_probs.json').read())
+        obj_values = objective_values_and_solutions.keys()
+        print "avg obj values", np.mean(obj_values) #TODO need to muliply by factor
+        if self.obj_sense == gp.GRB.MAXIMIZE:
+            best_obj_value = max(obj_values)
+        else:
+            best_obj_value = min(obj_values)
+        best_soln = objective_values_and_solutions[best_obj_value]
+        with open('best_soln.json', 'w') as outfile:
+            json.dump(best_soln, outfile, indent=2)
+        cmd = self.params_dict['saa_sampler_command']
+        world_states_file = 'dat/daskin_data/Hazards/hazardsDef_custom_facs5' + "_levels2_allFullyExposedAlways.json"
+        os.system(cmd + ' -a' + 'best_soln.json' + ' -e ' + self.params_file + ' -w ' + world_states_file)
+        second_stage_scens = json.loads(open('params/scens_saa_secondStage.json').read())
+        second_stage_obj_vals = [second_stage_scens[str(key)]['objective_value'] for key in second_stage_scens]
+        print "avg second stage obj vals", np.mean(second_stage_obj_vals)
 
 
 if __name__ == "__main__":

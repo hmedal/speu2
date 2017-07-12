@@ -95,8 +95,8 @@ def generate_scens_saa(static_params_file, changing_params_dict, saa_params_dict
 if __name__ == "__main__":
     print "cwd", os.getcwd()
     saa_params_dict = {"first_stage_iterations": 10, "first_stage_samples": 500, "second_stage_samples": 5000}
-    changing_params_dict = {"num_allocation_levels" : 2, "num_facs" : 8, "num_hazard_states" : 2, "num_states" : 3,
-                            "exposure_type" : 'allFullyExposedAlways', "num_hazard_states" : 2,
+    changing_params_dict = {"num_allocation_levels" : 2, "num_facs" : 5, "num_hazard_states" : 2, "num_states" : 2,
+                            "exposure_type" : 'allFullyExposedAlways',
                             "datasetName" : "Daskin49"}
     exposure_type = changing_params_dict['exposure_type']
     if changing_params_dict['exposure_type'] != '':
