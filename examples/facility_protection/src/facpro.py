@@ -14,6 +14,7 @@ import lxml.etree as etree
 import ast
 import itertools
 import json
+import argparse
 
 class Dataset(object):
     '''
@@ -158,3 +159,83 @@ class SecondStageProblem(object):
         self.resetRHSCapacities(cap_levels_for_facs)
         self.gurobiModel.optimize()
         return self.gurobiModel.objVal
+
+def generate_scens_dict(params_dict, world_states_file=None, states_vector_list=None):
+    num_facs = params_dict['num_facs']
+    num_states = params_dict['num_states']
+    scens = {}
+    second_stage_prob = SecondStageProblem(params_dict)
+    if world_states_file is None:
+        world_states = {}
+        world_states[0] = {}
+        world_states[0]['probability'] = 1.0
+        world_states[0]['exposures'] = [0] * num_facs
+    else:
+        world_states = json.loads(open(world_states_file).read())
+    scens = {}
+    count = 0
+    if states_vector_list is None:
+        states_vector_list = itertools.product(range(num_states), repeat=num_facs)
+    for world_state in world_states:
+        for states_vector in states_vector_list:
+            scens[count] = {}
+            scens[count]['component_states'] = states_vector
+            scens[count]['exposures'] = world_states[world_state]['exposures']
+            scens[count]['prob_of_world_state'] = world_states[world_state]['probability']
+            scens[count]['objective_value'] = second_stage_prob.computeSecondStageUtility(states_vector)
+            count += 1
+    return scens
+
+def get_params_string_scens(num_facs, num_states):
+    return "j_" + str(num_facs) + "_l_" + str(num_states)
+
+def get_scen_sample_dict(sample_size, params_dict, world_states_dict, allocation_dict = None):
+    num_facs = params_dict['num_facs']
+    num_states = params_dict['num_states']
+    second_stage_prob = SecondStageProblem(params_dict)
+    world_states_probs = [world_states_dict[str(key)]['probability'] for key in range(len(world_states_dict))]
+    world_states_values = range(len(world_states_dict))
+    scens = {}
+    for iteration in range(sample_size):
+        scens[iteration] = {}
+        world_state = np.random.choice(world_states_values, 1, p=world_states_probs)[0]
+        scens[iteration]['exposures'] = world_states_dict[str(world_state)]['exposures']
+        if allocation_dict is None:
+            states = list(np.random.randint(num_states, size=num_facs))
+        else:
+            state_values = range(num_states)
+            states = []
+            for fac in range(num_facs):
+                exposure = world_states_dict[str(world_state)]['exposures'][fac]
+                probs = [allocation_dict[str(fac)]['state_probs'][str(exposure)][str(state)] for state in state_values]
+                states.append(np.random.choice(state_values, 1, p = probs)[0])
+        scens[iteration]['component_states'] = states
+        scens[iteration]['objective_value'] = second_stage_prob.computeSecondStageUtility(states)
+    return scens
+
+def generate_scens_saa_second_stage(params_dict, allocation_dict, saa_params_dict, world_states_file = None):
+    second_stage_samples = saa_params_dict['saa_second_stage_samples']
+    num_facs = params_dict['num_facs']
+    num_states = params_dict['num_states']
+    if world_states_file is None:
+        world_states = {}
+        world_states[0] = {}
+        world_states[0]['probability'] = 1.0
+        world_states[0]['exposures'] = [0] * num_facs
+    else:
+        world_states = json.loads(open(world_states_file).read())
+    scens = get_scen_sample_dict(second_stage_samples, params_dict, world_states, allocation_dict)
+    with open('../params/scens_saa_secondStage.json', 'w') as outfile:
+        json.dump(scens, outfile, indent=2)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Read a filename.')
+    parser.add_argument('-a', '--allocfile', help='the state probabilities file', default="alloc.json")
+    parser.add_argument('-d', '--debug', help='run in debug mode', action='store_false')
+    parser.add_argument('-e', '--exprfile', help='experiment parameters file', default="exprFile.json")
+    parser.add_argument('-w', '--worldstates', help='world states file', default="worldstates.json")
+    args = parser.parse_args()
+    params_dict = json.loads(open(args.exprfile).read())
+    allocation_dict = json.loads(open(args.allocfile).read())
+    saa_params_dict = json.loads(open(args.exprfile).read())
+    generate_scens_saa_second_stage(params_dict, allocation_dict, saa_params_dict, args.worldstates)

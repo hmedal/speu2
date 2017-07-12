@@ -1,0 +1,5 @@
+{
+  "first_stage_iterations": 10, 
+  "first_stage_samples": 500, 
+  "second_stage_samples": 200
+}

@@ -1,7 +1,7 @@
 import itertools
 import json
 import os
-
+import numpy as np
 from scipy import stats
 
 import examples.facility_protection.src.facpro
@@ -42,7 +42,7 @@ def merge_two_dicts(x, y):
     z.update(y)
     return z
 
-def generate_scens(static_params_file, changing_params_dict, world_states_file = None):
+def generate_scens_dict(static_params_file, changing_params_dict, world_states_file = None, states_vector_list = None):
     params_dict = json.loads(open(static_params_file).read())
     num_facs = changing_params_dict['num_facs']
     num_states = changing_params_dict['num_states']
@@ -58,21 +58,44 @@ def generate_scens(static_params_file, changing_params_dict, world_states_file =
         world_states = json.loads(open(world_states_file).read())
     scens = {}
     count = 0
+    if states_vector_list is None:
+        states_vector_list = itertools.product(range(num_states), repeat=num_facs)
     for world_state in world_states:
-        for states_vector in itertools.product(range(num_states), repeat=num_facs):
+        for states_vector in states_vector_list:
             scens[count] = {}
             scens[count]['component_states'] = states_vector
             scens[count]['exposures'] = world_states[world_state]['exposures']
             scens[count]['prob_of_world_state'] = world_states[world_state]['probability']
             scens[count]['objective_value'] = second_stage_prob.computeSecondStageUtility(states_vector)
             count += 1
+    return scens
 
+def generate_scens(static_params_file, changing_params_dict, world_states_file = None, states_vector_list = None):
+    scens = generate_scens_dict(static_params_file, changing_params_dict, world_states_file, states_vector_list)
+    num_facs = changing_params_dict['num_facs']
+    num_states = changing_params_dict['num_states']
     with open('fac_pro_scens_' + get_params_string_scens(num_facs, num_states) + '.json', 'w') as outfile:
+        json.dump(scens, outfile, indent=2)
+
+def generate_scens_saa(static_params_file, changing_params_dict, saa_params_dict, world_states_file = None):
+    first_stage_iterations = saa_params_dict['first_stage_iterations']
+    first_stage_samples = saa_params_dict['first_stage_samples']
+    second_stage_samples = saa_params_dict['second_stage_samples']
+    num_facs = changing_params_dict['num_facs']
+    num_states = changing_params_dict['num_states']
+    states_vector_list = []
+    for iteration in range(first_stage_iterations*first_stage_samples):
+        states_vector_list.append(list(np.random.randint(num_states, size=num_facs)))
+    scens = generate_scens_dict(static_params_file, changing_params_dict, world_states_file, states_vector_list)
+    num_facs = changing_params_dict['num_facs']
+    num_states = changing_params_dict['num_states']
+    with open('fac_pro_scens_saa_' + get_params_string_scens(num_facs, num_states) + '.json', 'w') as outfile:
         json.dump(scens, outfile, indent=2)
 
 if __name__ == "__main__":
     print "cwd", os.getcwd()
-    changing_params_dict = {"num_allocation_levels" : 3, "num_facs" : 2, "num_hazard_states" : 2, "num_states" : 2,
+    saa_params_dict = {"first_stage_iterations": 10, "first_stage_samples": 500, "second_stage_samples": 5000}
+    changing_params_dict = {"num_allocation_levels" : 2, "num_facs" : 8, "num_hazard_states" : 2, "num_states" : 3,
                             "exposure_type" : 'allFullyExposedAlways', "num_hazard_states" : 2,
                             "datasetName" : "Daskin49"}
     exposure_type = changing_params_dict['exposure_type']
@@ -87,3 +110,4 @@ if __name__ == "__main__":
                         + "_levels" \
                         + str(changing_params_dict['num_hazard_states'])+ exposure_type_print + '.json'
     generate_scens(static_params_file, changing_params_dict, world_states_file)
+    generate_scens_saa(static_params_file, changing_params_dict, saa_params_dict, world_states_file)

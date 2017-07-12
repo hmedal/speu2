@@ -1,0 +1,2818 @@
+{
+  "0": {
+    "objective_value": 368.9995457101156, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "1": {
+    "objective_value": 1279.2403567278798, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      0, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "2": {
+    "objective_value": 1348.3322667160967, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      0, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "3": {
+    "objective_value": 2249.788923415853, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      0, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "4": {
+    "objective_value": 1318.1361844213366, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      0, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "5": {
+    "objective_value": 2195.63622543584, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      0, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "6": {
+    "objective_value": 2273.2421297966434, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      0, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "7": {
+    "objective_value": 3118.2957020692047, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      0, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "8": {
+    "objective_value": 1315.5799075020134, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      1, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "9": {
+    "objective_value": 2220.8249631237213, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      1, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "10": {
+    "objective_value": 2281.425781123711, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      1, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "11": {
+    "objective_value": 3175.1759713429915, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      1, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "12": {
+    "objective_value": 2263.082693528381, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      1, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "13": {
+    "objective_value": 3133.8911102151433, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      1, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "14": {
+    "objective_value": 3185.301015850145, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      1, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "15": {
+    "objective_value": 4010.9438650100724, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      0, 
+      1, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "16": {
+    "objective_value": 1302.411503416048, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "17": {
+    "objective_value": 2180.0640135008175, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      0, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "18": {
+    "objective_value": 2253.2586368694842, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      0, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "19": {
+    "objective_value": 3112.7121065299343, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      0, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "20": {
+    "objective_value": 2193.7232505218244, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      0, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "21": {
+    "objective_value": 3039.1864492930767, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      0, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "22": {
+    "objective_value": 3109.526655292227, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      0, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "23": {
+    "objective_value": 3912.272188938354, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      0, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "24": {
+    "objective_value": 2244.246923613397, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      1, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "25": {
+    "objective_value": 3114.6499852958086, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      1, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "26": {
+    "objective_value": 3156.462614643724, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      1, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "27": {
+    "objective_value": 4001.009107949493, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      1, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "28": {
+    "objective_value": 3122.6786985822414, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      1, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "29": {
+    "objective_value": 3950.6439805304067, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      1, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "30": {
+    "objective_value": 3975.876436012983, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      1, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "31": {
+    "objective_value": 4710.793910526109, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      0, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "32": {
+    "objective_value": 1323.5428846059126, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "33": {
+    "objective_value": 2226.216374132582, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      0, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "34": {
+    "objective_value": 2251.7138778809326, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      0, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "35": {
+    "objective_value": 3138.1325117105234, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      0, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "36": {
+    "objective_value": 2206.718774660962, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      0, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "37": {
+    "objective_value": 3056.472796856432, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      0, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "38": {
+    "objective_value": 3087.653255811779, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      0, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "39": {
+    "objective_value": 3895.2897224482, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      0, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "40": {
+    "objective_value": 2253.57625553931, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      1, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "41": {
+    "objective_value": 3153.3075805779854, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      1, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "42": {
+    "objective_value": 3131.4827932270373, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      1, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "43": {
+    "objective_value": 4008.208563491304, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      1, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "44": {
+    "objective_value": 3131.666709463014, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      1, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "45": {
+    "objective_value": 3956.9202602672563, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      1, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "46": {
+    "objective_value": 3927.9614670204755, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      1, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "47": {
+    "objective_value": 4706.031049347735, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      0, 
+      1, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "48": {
+    "objective_value": 2236.245549754764, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "49": {
+    "objective_value": 3097.3810249848852, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      0, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "50": {
+    "objective_value": 3129.5454567683832, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      0, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "51": {
+    "objective_value": 3957.1964353002413, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      0, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "52": {
+    "objective_value": 3026.871381928886, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      0, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "53": {
+    "objective_value": 3801.3529839962043, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      0, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "54": {
+    "objective_value": 3850.835457222165, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      0, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "55": {
+    "objective_value": 4538.578136320163, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      0, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "56": {
+    "objective_value": 3159.2537359934836, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      1, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "57": {
+    "objective_value": 4010.6925596732326, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      1, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "58": {
+    "objective_value": 3972.7276211132744, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      1, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "59": {
+    "objective_value": 4737.723103841649, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      1, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "60": {
+    "objective_value": 3924.623574766402, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      1, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "61": {
+    "objective_value": 4669.989820589826, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      1, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "62": {
+    "objective_value": 4591.993210017745, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "63": {
+    "objective_value": 5210.030172200472, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      0, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "64": {
+    "objective_value": 1457.9166239148458, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "65": {
+    "objective_value": 2364.460457410107, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      0, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "66": {
+    "objective_value": 2435.212352898056, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      0, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "67": {
+    "objective_value": 3331.9324553560914, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      0, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "68": {
+    "objective_value": 2406.027624627414, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      0, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "69": {
+    "objective_value": 3280.8563261180675, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      0, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "70": {
+    "objective_value": 3355.940163962996, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      0, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "71": {
+    "objective_value": 4199.230864101223, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      0, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "72": {
+    "objective_value": 2389.8164505821287, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      1, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "73": {
+    "objective_value": 3293.034245935924, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      1, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "74": {
+    "objective_value": 3346.4424570216147, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      1, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "75": {
+    "objective_value": 4236.236682367065, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      1, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "76": {
+    "objective_value": 3337.319236608498, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      1, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "77": {
+    "objective_value": 4206.100393027348, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      1, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "78": {
+    "objective_value": 4246.854979932889, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      1, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "79": {
+    "objective_value": 5062.026442393066, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      0, 
+      1, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "80": {
+    "objective_value": 2381.201343268097, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "81": {
+    "objective_value": 3255.6115955258806, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      0, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "82": {
+    "objective_value": 3331.231206909173, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      0, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "83": {
+    "objective_value": 4186.70791934555, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      0, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "84": {
+    "objective_value": 3271.692597814708, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      0, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "85": {
+    "objective_value": 4109.318023309648, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      0, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "86": {
+    "objective_value": 4184.781472327614, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      0, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "87": {
+    "objective_value": 4973.76615237079, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      0, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "88": {
+    "objective_value": 3308.8627298807446, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      1, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "89": {
+    "objective_value": 4175.548241881832, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      1, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "90": {
+    "objective_value": 4218.066687002137, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      1, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "91": {
+    "objective_value": 5053.571572750674, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      1, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "92": {
+    "objective_value": 4184.740776246689, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      1, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "93": {
+    "objective_value": 5003.327551135305, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      1, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "94": {
+    "objective_value": 5033.57105785115, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      1, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "95": {
+    "objective_value": 5701.141738643392, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      0, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "96": {
+    "objective_value": 2396.378617304783, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "97": {
+    "objective_value": 3291.5088822054367, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      0, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "98": {
+    "objective_value": 3318.8419112289066, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      0, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "99": {
+    "objective_value": 4197.66978565198, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      0, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "100": {
+    "objective_value": 3278.9156198539763, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      0, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "101": {
+    "objective_value": 4110.835261360579, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      0, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "102": {
+    "objective_value": 4147.925157897325, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      0, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "103": {
+    "objective_value": 4937.047789274258, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      0, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "104": {
+    "objective_value": 3315.99696043373, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      1, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "105": {
+    "objective_value": 4210.21345447925, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      1, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "106": {
+    "objective_value": 4193.036757309782, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      1, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "107": {
+    "objective_value": 5054.000469287878, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      1, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "108": {
+    "objective_value": 4193.337745888248, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      1, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "109": {
+    "objective_value": 5005.072932046518, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      1, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "110": {
+    "objective_value": 4986.393232801277, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      1, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "111": {
+    "objective_value": 5689.86941174668, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      0, 
+      1, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "112": {
+    "objective_value": 3308.7789014411164, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      0, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "113": {
+    "objective_value": 4161.784746612501, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      0, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "114": {
+    "objective_value": 4196.672552808808, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      0, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "115": {
+    "objective_value": 5003.732740976563, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      0, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "116": {
+    "objective_value": 4091.961635821481, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      0, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "117": {
+    "objective_value": 4849.568550270204, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      0, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "118": {
+    "objective_value": 4908.510658491207, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      0, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "119": {
+    "objective_value": 5495.849978500156, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      0, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "120": {
+    "objective_value": 4221.080448938363, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      1, 
+      0, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "121": {
+    "objective_value": 5059.992316682499, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      1, 
+      0, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "122": {
+    "objective_value": 5032.67990426523, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      1, 
+      0, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "123": {
+    "objective_value": 5724.713735739979, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      1, 
+      0, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "124": {
+    "objective_value": 4982.2987760354445, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      0, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "125": {
+    "objective_value": 5657.6354579169565, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      0, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "126": {
+    "objective_value": 5614.338276226005, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      0
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }, 
+  "127": {
+    "objective_value": 5877.771234762189, 
+    "prob_of_world_state": 1.0, 
+    "component_states": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ], 
+    "exposures": [
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1, 
+      1
+    ]
+  }
+}
