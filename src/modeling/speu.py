@@ -35,12 +35,10 @@ class SPEU_Stochastic_Program():
         self.create_model()
 
     def read_scens_file(self, scenarios_file):
-        print "scenarios_file", scenarios_file
         if isinstance(scenarios_file, dict):
             self.scenarios = scenarios_file
         else:
             self.scenarios = json.loads(open(scenarios_file).read())
-        print "scenarios", self.scenarios
         first_key = self.scenarios.keys()[0]
         self.num_components = len(self.scenarios[first_key]['component_states'])
         self.num_scenarios = len(self.scenarios)
@@ -244,12 +242,10 @@ class SPEU_SAA_Algorithm(SPEU_Stochastic_Program):
         self.params_dict = json.loads(open(params_file).read())
         self.num_first_stage_solns = self.params_dict['saa_first_stage_iterations']
         self.scenarios = json.loads(open(scenarios_file).read())
-        print "scenarios in init", self.scenarios
         self.sample_average_problems = []
         for iter in range(self.num_first_stage_solns):
             scenarios_for_iteration = {str(k): self.scenarios[str(k)] for k in range(iter*self.num_first_stage_solns,
                                                              (iter+1) * self.num_first_stage_solns)}
-            print "scenarios_for_iteration", scenarios_for_iteration
             self.sample_average_problems.append(SPEU_Stochastic_Program(maximize, params_file, scenarios_for_iteration,
                                                                    probabilities_file, debug))
 
@@ -259,7 +255,12 @@ class SPEU_SAA_Algorithm(SPEU_Stochastic_Program):
             objVal = sample_average_problem.solve()
             objective_values_and_solutions[objVal] = json.loads(open('alloc_levels_and_state_probs.json').read())
         obj_values = objective_values_and_solutions.keys()
-        print "avg obj values", np.mean(obj_values) #TODO need to muliply by factor
+        num_states = self.params_dict['num_states']
+        num_facs = self.params_dict['num_facs']
+        saa_first_stage_samples = self.params_dict['saa_first_stage_samples']
+        cadinalityOfSampleSpace = num_states ** num_facs
+        multiplier_to_compute_expectation = cadinalityOfSampleSpace / (saa_first_stage_samples + 0.0)
+        print "avg obj values", multiplier_to_compute_expectation * np.mean(obj_values)
         if self.obj_sense == gp.GRB.MAXIMIZE:
             best_obj_value = max(obj_values)
         else:
@@ -273,6 +274,7 @@ class SPEU_SAA_Algorithm(SPEU_Stochastic_Program):
         second_stage_scens = json.loads(open('params/scens_saa_secondStage.json').read())
         second_stage_obj_vals = [second_stage_scens[str(key)]['objective_value'] for key in second_stage_scens]
         print "avg second stage obj vals", np.mean(second_stage_obj_vals)
+        print "std dev second stage obj vals", np.std(second_stage_obj_vals)
 
 
 if __name__ == "__main__":
