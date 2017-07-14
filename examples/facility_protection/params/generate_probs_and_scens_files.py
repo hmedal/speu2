@@ -94,10 +94,15 @@ def generate_scens_saa(static_params_file, changing_params_dict, saa_params_dict
 
 if __name__ == "__main__":
     print "cwd", os.getcwd()
-    saa_params_dict = {"first_stage_iterations": 10, "first_stage_samples": 500, "second_stage_samples": 5000}
-    changing_params_dict = {"num_allocation_levels" : 2, "num_facs" : 5, "num_hazard_states" : 2, "num_states" : 2,
+    dataset_name = "Daskin49"
+    num_facs = 10
+    saa_params_dict = {"first_stage_iterations": 20, "first_stage_samples": 2000, "second_stage_samples": 10000}
+    changing_params_dict = {"num_allocation_levels" : 3, "num_facs" : num_facs, "num_hazard_states" : 2,
+                            "num_states" : 3,
                             "exposure_type" : 'allFullyExposedAlways',
-                            "datasetName" : "Daskin49"}
+                            "datasetName" : dataset_name,
+                            "data_file_path" : '../dat/daskin_data/' +
+                                               dataset_name +"_FacPro" + "_p" + str(num_facs) + ".xml"}
     exposure_type = changing_params_dict['exposure_type']
     if changing_params_dict['exposure_type'] != '':
         exposure_type_print = "_" + exposure_type

@@ -5,8 +5,10 @@ import csv
 import operator
 import os
 import numpy as np
+from scipy.stats import t as tDist
 
 FUZZ = 0.0000001
+alpha = 0.05
 
 def create_model_object(maximize, params_file, scenarios_file, probabilities_file, debug):
     params_dict = json.loads(open(params_file).read())
@@ -250,6 +252,7 @@ class SPEU_SAA_Algorithm(SPEU_Stochastic_Program):
                                                                    probabilities_file, debug))
 
     def solve(self):
+        print "SOLVING SAA PROBLEM"
         objective_values_and_solutions = {}
         for sample_average_problem in self.sample_average_problems:
             objVal = sample_average_problem.solve()
@@ -258,24 +261,35 @@ class SPEU_SAA_Algorithm(SPEU_Stochastic_Program):
         num_states = self.params_dict['num_states']
         num_facs = self.params_dict['num_facs']
         saa_first_stage_samples = self.params_dict['saa_first_stage_samples']
-        cadinalityOfSampleSpace = num_states ** num_facs
-        multiplier_to_compute_expectation = cadinalityOfSampleSpace / (saa_first_stage_samples + 0.0)
-        print "avg obj values", multiplier_to_compute_expectation * np.mean(obj_values)
+        cardinality_of_sample_space = num_states ** num_facs
+        multiplier_to_compute_expectation = cardinality_of_sample_space / (saa_first_stage_samples + 0.0)
+        print "multiplier_to_compute_expectation", multiplier_to_compute_expectation
+        print "cardinality_of_sample_space", cardinality_of_sample_space
+        adjusted_obj_values = [multiplier_to_compute_expectation*value for value in obj_values]
+        print "adjusted_obj_values", adjusted_obj_values
+        print "avg adjusted obj values", np.mean(adjusted_obj_values), "+/-", get_tdist_hw(adjusted_obj_values)
         if self.obj_sense == gp.GRB.MAXIMIZE:
             best_obj_value = max(obj_values)
         else:
             best_obj_value = min(obj_values)
         best_soln = objective_values_and_solutions[best_obj_value]
+        print "best soln", {component : best_soln[str(component)]['alloc_level'] for component in range(num_facs)}
         with open('best_soln.json', 'w') as outfile:
             json.dump(best_soln, outfile, indent=2)
         cmd = self.params_dict['saa_sampler_command']
-        world_states_file = 'dat/daskin_data/Hazards/hazardsDef_custom_facs5' + "_levels2_allFullyExposedAlways.json"
+        world_states_file = 'dat/daskin_data/Hazards/hazardsDef_custom_facs' + str(num_facs) \
+                            + "_levels2_allFullyExposedAlways.json"
         os.system(cmd + ' -a' + 'best_soln.json' + ' -e ' + self.params_file + ' -w ' + world_states_file)
         second_stage_scens = json.loads(open('params/scens_saa_secondStage.json').read())
         second_stage_obj_vals = [second_stage_scens[str(key)]['objective_value'] for key in second_stage_scens]
-        print "avg second stage obj vals", np.mean(second_stage_obj_vals)
-        print "std dev second stage obj vals", np.std(second_stage_obj_vals)
+        first_phase_hw = get_tdist_hw(adjusted_obj_values)
+        print "second_stage_obj_vals", second_stage_obj_vals
+        print "avg second stage obj vals", np.mean(second_stage_obj_vals), "+/-", get_tdist_hw(second_stage_obj_vals)
 
+
+def get_tdist_hw(x):
+    n = len(x)
+    return tDist.ppf(1 - alpha / 2.0, n - 1) * np.std(x) / np.sqrt(n)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Read a filename.')
